@@ -23,11 +23,55 @@ class Comida {
         int calorias;
         float carbohidratos;
         float lipidos;
-        float proteina;
+        float proteinas;
 
     public:
         Comida(){};
         Comida(string, int, float, float, float){};
+
+        // Getters
+
+        string getNombre(){
+            return nombre;
+        }
+
+        int getCalorias(){
+            return calorias;
+        }
+
+        float getCarbohidratos(){
+            return carbohidratos;
+        }
+
+        float getLipidos(){
+            return lipidos;
+        }
+        
+        float getProteina(){
+            return proteinas;
+        }
+
+        // Setters
+
+        void setNombre(string nm){
+            nombre = nm;
+        }
+
+        void setCalorias(int cal){
+            calorias = cal;
+        }
+
+        void setCarbohidratos(float car){
+            carbohidratos = car;
+        }
+
+        void setLipidos(float lip){
+            lipidos = lip;
+        }
+
+        void setProteinas(float pro){
+            proteinas = pro;
+        }
 
 };
 
