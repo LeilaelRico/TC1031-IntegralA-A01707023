@@ -31,14 +31,11 @@ int main(){
 
     ifstream myfile("datost.txt");
     string nam;
-    int cl, i;
+    int cl, i, opc;
     float cb, lp, pt;
     vector<Comida> comid;
     Comida c;
 
-    
-
-    int opc;
     
   do{
     menu();
@@ -64,6 +61,7 @@ int main(){
                 cout<<"Datos Cargados"<<endl;
                     break;
 
+
             case 2:
                 for (i = 0; i<comid.size(); i++){
                     cout<<"\n--------------------------------";
@@ -76,9 +74,12 @@ int main(){
                 }
                 break;
 
+
             case 3:
                 cout<<"Op 3"<<endl;
                 break;
+
+                
         }
     } 
     while(opc != 4);
