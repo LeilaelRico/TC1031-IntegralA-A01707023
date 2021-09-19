@@ -35,11 +35,11 @@ template <class T>
 string arrayToString(const vector<T> &v) {
 	stringstream aux;
 
-	aux << "[" << v[0];
+	aux << "0 " << v[0];
 	for (int i = 1; i < v.size(); i++) {
-		aux << ", " << v[i];
+		aux << "\n" << i << " " << v[i];
 	}
-	aux << "]";
+
 	return aux.str();
 }
 
@@ -112,7 +112,7 @@ int main(int argc, char* argv[]){
                     prueba = original1;
                     sorts.ordenaSeleccion(prueba);
 
-                    cout << "\n programa " << arrayToString(prueba) << "\n";
+                    cout << "\nOrdenado:\n" << arrayToString(prueba) << "\n";
 
 
 
