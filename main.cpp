@@ -47,16 +47,19 @@ int main(){
             c.setLipidos(lp);
             c.setProteinas(pt);
             comid.push_back(c);
-            cout<<"\n--------------------------------";
-            cout<<"\nNombre: "<<c.getNombre();
-            cout<<"\nCalorias: "<<c.getCalorias();
-            cout<<"\nCarbohidratos: "<<c.getCarbohidratos();
-            cout<<"\nLipidos: "<<c.getLipidos();
-            cout<<"\nProteinas: "<<c.getProteinas();
-            cout<<"\n--------------------------------";
         }
     }
         myfile.close();
+
+    for (int i = 0; i<comid.size(); i++){
+        cout<<"\n--------------------------------";
+            cout<<"\nNombre: "<<comid[i].getNombre();
+            cout<<"\nCalorias: "<<comid[i].getCalorias();
+            cout<<"\nCarbohidratos: "<<comid[i].getCarbohidratos();
+            cout<<"\nLipidos: "<<comid[i].getLipidos();
+            cout<<"\nProteinas: "<<comid[i].getProteinas();
+            cout<<"\n--------------------------------";
+    }
 
 
     return 0;
