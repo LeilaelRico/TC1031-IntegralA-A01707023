@@ -26,6 +26,7 @@ class Comida {
         float proteinas;
 
     public:
+    
         Comida(){
             
             nombre = " ";
@@ -35,6 +36,7 @@ class Comida {
             proteinas = 0;
 
         };
+
         Comida(string _nombre, int _calorias, float _carbohidratos, float _lipidos, float _proteinas){
 
             nombre = _nombre;
