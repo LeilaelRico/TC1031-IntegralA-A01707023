@@ -9,18 +9,21 @@ Cristian Leilael Rico Espinosa.
 Matrícula: A01707023.
 */
 
-#include "comida.h"
-#include "sorts.h"
+#include <iostream>
 #include <fstream>
 #include <vector>
-using namespace std;
+#include <list>
+#include <iterator>
 
+#include "sorts.h"
+
+using namespace std;
 
 void menu()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Leer los datos."<<endl;
-    cout<<"2. Formato."<<endl;
+    cout<<"2. Ordenar."<<endl;
     cout<<"3. Formato."<<endl;
     cout<<"4. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
@@ -28,36 +31,39 @@ void menu()
 
 
 int main(){
+  vector<string> v;
+  Sorts<string> sorts;
 
-    ifstream myfile("datost.txt");
-    string nam;
-    int cl;
-    float cb, lp, pt;
-    vector<Comida> comid;
-    Comida c;
+    ifstream archivo ("datos.csv");
+    vector<string>vc;
+    string str;
 
-    while(myfile.peek()!=EOF)
-    {
-
-        if(myfile>>nam>>cl>>cb>>lp>>pt)
-        {
-            c.setNombre(nam);      
-            c.setCalorias(cl);
-            c.setCarbohidratos(cb);
-            c.setLipidos(lp);
-            c.setProteinas(pt);
-            comid.push_back(c);
-            cout<<"\n--------------------------------";
-            cout<<"\nNombre: "<<c.getNombre();
-            cout<<"\nCalorias: "<<c.getCalorias();
-            cout<<"\nCarbohidratos: "<<c.getCarbohidratos();
-            cout<<"\nLipidos: "<<c.getLipidos();
-            cout<<"\nProteinas: "<<c.getProteinas();
-            cout<<"\n--------------------------------";
-        }
+    while(archivo >> str){
+        vc.push_back(str);
     }
-        myfile.close();
+    sorts.ordenaMerge(vc);
+    copy (vc.begin(),vc.end(),ostream_iterator<string>(cout,"\n"));
+  
+  /*int op;
+    
+  do{
+    
+    menu();
+    cin>>op;
 
+        switch(op){
+
+            case 1:
+                // Algo
+            break;
+
+            case 2: 
+                // Algo
+            break;
+        }
+    } 
+    while(op != 3);
+    cout<<"Salida\n";*/
 
     return 0;
 }
