@@ -20,11 +20,9 @@ void menu()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Leer los datos."<<endl;
-    cout<<"2. Show the videos with a specific rating or from a specific genre."<<endl;
-    cout<<"3. Show the episodes of a specific series with a specific rating."<<endl;
-    cout<<"4. Show the movies with a specific rating."<<endl;
-    cout<<"5. Rate a video."<<endl;
-    cout<<"6. Exit."<<endl;
+    cout<<"2. Formato."<<endl;
+    cout<<"3. Formato."<<endl;
+    cout<<"4. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
