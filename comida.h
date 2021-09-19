@@ -26,8 +26,24 @@ class Comida {
         float proteinas;
 
     public:
-        Comida(){};
-        Comida(string, int, float, float, float){};
+        Comida(){
+            
+            nombre = " ";
+            calorias = 0;
+            carbohidratos = 0;
+            lipidos = 0;
+            proteinas = 0;
+
+        };
+        Comida(string _nombre, int _calorias, float _carbohidratos, float _lipidos, float _proteinas){
+
+            nombre = _nombre;
+            calorias = _calorias;
+            carbohidratos = _carbohidratos;
+            lipidos = _lipidos;
+            proteinas = _proteinas;
+
+        };
 
         // Getters
 
@@ -47,7 +63,7 @@ class Comida {
             return lipidos;
         }
         
-        float getProteina(){
+        float getProteinas(){
             return proteinas;
         }
 
