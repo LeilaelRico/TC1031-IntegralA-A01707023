@@ -44,7 +44,7 @@ string arrayToString(const vector<T> &v) {
 }
 
 
-int main(){
+int main(int argc, char* argv[]){
 
     ifstream myfile("datost.txt");
     string nam;
@@ -53,7 +53,7 @@ int main(){
     vector<Comida> comid;
     Comida c;
     vector<string> vc;
-    string arr[27];
+    string arr[28];
 
     do{
         menu();
@@ -96,10 +96,15 @@ int main(){
                 case 3:
 
                     for (i = 0; i<comid.size(); i++){
-                        string arr[i] = {comid[i].getNombre()};
+                        arr[i] = {comid[i].getNombre()};
                     }
 
-                    vector<string> original1 (arr, arr + sizeof(arr) / sizeof(int) );
+                    for (i = 0; i<comid.size(); i++){
+                        cout<< i<<" "<<arr[i]<<endl;
+                    }
+
+
+                    vector<string> original1 (arr, arr + sizeof(arr) / sizeof(string) );
 
                     vector<string> prueba;
                     Sorts<string> sorts;
