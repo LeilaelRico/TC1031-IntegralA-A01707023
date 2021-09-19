@@ -38,7 +38,8 @@ int main(){
     vector<Comida> comid;
     Comida c;
 
-    while(myfile.peek()!=EOF){
+    while(myfile.peek()!=EOF)
+    {
 
         if(myfile>>nam>>cl>>cb>>lp>>pt)
         {
