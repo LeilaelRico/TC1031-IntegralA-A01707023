@@ -25,7 +25,7 @@ void menu()
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Leer los datos."<<endl;
     cout<<"2. Mostrar los datos."<<endl;
-    cout<<"3. Ordenar los datos."<<endl;
+    cout<<"3. Ordenar los nombres."<<endl;
     cout<<"4. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
@@ -104,21 +104,17 @@ int main(int argc, char* argv[]){
                     }
 
 
-                    vector<string> original1 (arr, arr + sizeof(arr) / sizeof(string) );
+                    vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
 
                     vector<string> prueba;
                     Sorts<string> sorts;
 
-                    prueba = original1;
-                    sorts.ordenaSeleccion(prueba);
+                    orcom = originalnom;
+                    sorts.ordenaMerge(orcom);
 
-                    cout << "\nOrdenado:\n" << arrayToString(prueba) << "\n";
-
-
+                    cout << "\nOrdenado:\n" << arrayToString(orcom) << "\n";
 
                     break;
-
-
             }
         }
         while(opc != 4);
