@@ -106,7 +106,7 @@ int main(int argc, char* argv[]){
 
                     vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
 
-                    vector<string> prueba;
+                    vector<string> orcom;
                     Sorts<string> sorts;
 
                     orcom = originalnom;
