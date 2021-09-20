@@ -1,7 +1,11 @@
 # Alimentos y su Información Nutrimental.
 **Proyecto Integral "A" de Programación de Estructuras de Datos.**  
 
-Para este proyecto, se busca hacer un recopilatorio de información nutrimental de diversos alimentos.  
+Para este proyecto, se busca hacer un recopilatorio de información nutrimental de diversos alimentos.
+Hasta este avance, el programa despliega un menú con 3 opciones:   
+* Leer los datos: Carga los datos que se encuentran en un archivo con extensión *".txt"* y sus valores son almacenados en un vector de una clase en específico.
+* Mostrar los datos: Como su nombre lo dice, muestra los datos que han sido almacenados.
+* Ordenar los nombres: Ordena los nombres de los alimentos y despliega la lista con los nombres antes y después de pasar por un algoritmo de ordenamiento.   
 
 # Avance 1
 
