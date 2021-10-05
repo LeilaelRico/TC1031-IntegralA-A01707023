@@ -1,8 +1,10 @@
 /*
 main.cpp
+
 ITESM
 Campus Querétaro
 Programación de Estructuras de Datos y Algoritmos Fundamentales.
+
 Cristian Leilael Rico Espinosa.
 Matrícula: A01707023.
 */
@@ -15,6 +17,8 @@ Matrícula: A01707023.
 #include <string>
 #include <sstream>
 #include <cstring>
+#include "dlist.h"
+
 using namespace std;
 
 
@@ -52,6 +56,7 @@ int main(int argc, char* argv[]){
     Comida c;
     vector<string> vc;
     string arr[28];
+    DList<Comida> lcom;
 
     do{
         menu();
@@ -70,8 +75,12 @@ int main(int argc, char* argv[]){
                             c.setCarbohidratos(cb);
                             c.setLipidos(lp);
                             c.setProteinas(pt);
-                            comid.push_back(c);
+                            c.ctoString();
+                            lcom.add(c);
                         }
+                        //c.ctoString();
+                        //lcom.add(c);
+
                     }
                     myfile.close();
                     cout<<"Datos Cargados"<<endl;
@@ -79,15 +88,8 @@ int main(int argc, char* argv[]){
 
 
                 case 2:
-                    for (i = 0; i<comid.size(); i++){
-                        cout<<"\n--------------------------------";
-                            cout<<"\nNombre: "<<comid[i].getNombre();
-                            cout<<"\nCalorias: "<<comid[i].getCalorias();
-                            cout<<"\nCarbohidratos: "<<comid[i].getCarbohidratos();
-                            cout<<"\nLipidos: "<<comid[i].getLipidos();
-                            cout<<"\nProteinas: "<<comid[i].getProteinas();
-                            cout<<"\n--------------------------------";
-                    }
+                    lcom.toString();
+
                     break;
 
 

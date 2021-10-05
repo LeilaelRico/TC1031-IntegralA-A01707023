@@ -13,7 +13,6 @@ Matrícula: A01707023.
 #define COMIDA_H_
 
 #include <iostream>
-#include<sstream>
 using namespace std;
 
 class Comida {
@@ -93,13 +92,14 @@ class Comida {
         }
 
 
-        //string ctoString();
+        string toString();
 };
 
-/*string Comida::ctoString(){
+string Comida::toString(){
     stringstream aux;
-    aux<< "Nombre: "<< nombre <<"\nCalorias: "<<calorias<<"\nCarbohidratos: "<<carbohidratos<<"\nLipidos: "<<lipidos<<"\nProteinas: "<< proteinas<<endl;
+    aux<< "Nombre: "<< nombre <<"\nCalorias: "<<calorias<<"\nCarbohidratos: "<<carbohidratos<<"\nLipidos"<<megas<<endl;
     return aux.str();
-    }*/
+    }
+}
 
 #endif /* COMIDA_H_ */
