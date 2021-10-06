@@ -72,28 +72,29 @@ int main(){
                 cout<<"Especifica el nombre: ";
                 cin>>nom;
 
-                cout<<"\nEspecifica las calorias: ";
+                cout<<"Especifica las calorias: ";
                 cin>>cal;
 
-                cout<<"\nEspecifica los carbohidratos: ";
+                cout<<"Especifica los carbohidratos: ";
                 cin>>car;
 
-                cout<<"\nEspecifica los lipidos: ";
+                cout<<"Especifica los lipidos: ";
                 cin>>li;
 
-                cout<<"\nEspecifica las proteinas: ";
+                cout<<"Especifica las proteinas: ";
                 cin>>pro;
 
-                /*neoCom = nom + cal + car + li + pro;
-                cout<<neoCom;*/
+                neoCom = nom;
+                neoCom.append(" ");
+                neoCom.append(cal);
+                neoCom.append(" ");
+                neoCom.append(car);
+                neoCom.append(" ");
+                neoCom.append(li);
+                neoCom.append(" ");
+                neoCom.append(pro);
 
-                //cin>>nom>>cal>>car>>li>>pro;
-                //cin>>neoCom;
-
-                //cin.ignore(neoCom, ' ');
-                getline((cin>>nom)>>cal>>car>>li>>pro,comList);
-                getline(cin,comList);
-                comid.add(comList);
+                comid.add(neoCom);
 
             break;
 
@@ -106,6 +107,7 @@ int main(){
                 cin>>el;
 
                 comid.remove(el);
+                cout<<"Elemento eliminado, para comprobarlo, utilice la 'opción 2' en el menú."<<endl;
 
             break;
 
