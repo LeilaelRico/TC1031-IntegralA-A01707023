@@ -95,6 +95,7 @@ int main(){
                 neoCom.append(pro);
 
                 comid.add(neoCom);
+                cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opción 2' en el menú."<<endl;
 
             break;
 
