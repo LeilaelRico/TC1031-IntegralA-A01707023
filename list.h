@@ -67,7 +67,7 @@ public:
 	T    remove(int) throw (IndexOutOfBounds);
 	bool removeFirstOcurrence(T);
 	bool removeLastOcurrence(T);
-	void show();
+	void printL();
 
 private:
 	Link<T> *head;
@@ -371,7 +371,7 @@ T List<T>::removeCurrent(ListIterator<T> &itr) throw (IllegalAction) {
 }
 
 template <class T>
-void List<T>::show(){
+void List<T>::printL(){
     Link<T> *p;         //Creamos un nuevo nodo
     p = head;           //El nuevo nodo apunta a la lista
     while(p != NULL){   //Recorremos toda la lista

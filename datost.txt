@@ -1,3 +1,4 @@
+Nombre Calorias Carbohidratos Lipidos Proteinas
 Pan_Dulce 223 30.54 9.84 3.72
 Yoghurt_Bebible 168 29.8 3.5 4.3
 Manzana 72 19.06 0.23 0.36

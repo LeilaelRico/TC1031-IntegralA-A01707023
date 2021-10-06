@@ -12,6 +12,7 @@ Matrícula: A01707023.
 #include <vector>
 #include <list>
 #include <iterator>
+#include <string>
 
 #include "sorts.h"
 #include "list.h"
@@ -23,43 +24,94 @@ void menu()
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Leer los datos."<<endl;
     cout<<"2. Mostrar los datos."<<endl;
-    cout<<"3. Ordenar los nombres."<<endl;
-    cout<<"4. Salir."<<endl;
+    cout<<"3. Agrega un alimento."<<endl;
+    cout<<"4. Elimina un alimento."<<endl;
+    cout<<"5. Ordenar los nombres."<<endl;
+    cout<<"6. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
 
 int main(){
-  vector<string> v;
-  Sorts<string> sorts;
+    int op = 0;
+    List<string>comid;
+    string str, comList, nom, cal, car, li, pro;
+    ifstream file ("datost.txt");
 
-    ifstream archivo ("datost.txt");
-    vector<string>vc;
-    string str;
-
-    while(archivo >> str){
-        vc.push_back(str);
-    }
-    sorts.ordenaMerge(vc);
-    copy (vc.begin(),vc.end(),ostream_iterator<string>(cout,"\n"));
-
-  /*int op;
-
-  do{
-
+    do{
     menu();
+    cout<<"Elige una de las opciones: ";
     cin>>op;
         switch(op){
+
+
             case 1:
-                // Algo
+
+                while(getline(file,comList)){
+                    if(comList.size() > 0){
+                        comid.add(comList);
+                    }
+                }
+                file.close();
+                cout<<"Datos Cargados"<<endl;
+
             break;
+
+
             case 2:
-                // Algo
+
+                comid.printL();
+                cout<<endl;
+                
             break;
+
+
+            case 3:
+
+                cout<<"Especifica el nombre: ";
+                cin>>nom;
+
+                cout<<"\nEspecifica las calorias: ";
+                cin>>cal;
+
+                cout<<"\nEspecifica los carbohidratos: ";
+                cin>>car;
+
+                cout<<"\nEspecifica los lipidos: ";
+                cin>>li;
+
+                cout<<"\nEspecifica las proteinas: ";
+                cin>>pro;
+
+                //cin>>nom>>cal>>car>>li>>pro
+                //cin.ignore();
+                getline(cin,comList);
+                comid.add(comList);
+
+            break;
+
+
+            case 4:
+
+                cout<<"Algo"<<endl;
+
+            break;
+
+
+            case 5:
+
+                cout<<"Algo"<<endl;
+                
+            break;    
+
+
         }
+
+
     }
-    while(op != 3);
-    cout<<"Salida\n";*/
+    while(op != 6);
+    cout<<"Salida\n";
+
 
     return 0;
 }
