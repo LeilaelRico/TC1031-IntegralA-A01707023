@@ -34,9 +34,10 @@ void menu()
 
 int main(){
     int op = 0;
+    int el;
     List<string>comid;
-    string str, comList, nom, cal, car, li, pro;
-    ifstream file ("datost.txt");
+    string str, comList, nom, cal, car, li, pro, neoCom;
+    ifstream myfile ("datost.txt");
 
     do{
     menu();
@@ -47,12 +48,12 @@ int main(){
 
             case 1:
 
-                while(getline(file,comList)){
+                while(getline(myfile,comList)){
                     if(comList.size() > 0){
                         comid.add(comList);
                     }
                 }
-                file.close();
+                myfile.close();
                 cout<<"Datos Cargados"<<endl;
 
             break;
@@ -62,7 +63,7 @@ int main(){
 
                 comid.printL();
                 cout<<endl;
-                
+
             break;
 
 
@@ -83,8 +84,14 @@ int main(){
                 cout<<"\nEspecifica las proteinas: ";
                 cin>>pro;
 
-                //cin>>nom>>cal>>car>>li>>pro
-                //cin.ignore();
+                /*neoCom = nom + cal + car + li + pro;
+                cout<<neoCom;*/
+
+                //cin>>nom>>cal>>car>>li>>pro;
+                //cin>>neoCom;
+
+                //cin.ignore(neoCom, ' ');
+                getline((cin>>nom)>>cal>>car>>li>>pro,comList);
                 getline(cin,comList);
                 comid.add(comList);
 
@@ -93,7 +100,12 @@ int main(){
 
             case 4:
 
-                cout<<"Algo"<<endl;
+                comid.printL();
+
+                cout<<"Introduzca el numero del elemento a borrar: ";
+                cin>>el;
+
+                comid.remove(el);
 
             break;
 
@@ -101,8 +113,8 @@ int main(){
             case 5:
 
                 cout<<"Algo"<<endl;
-                
-            break;    
+
+            break;
 
 
         }

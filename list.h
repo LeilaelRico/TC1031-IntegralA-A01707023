@@ -65,8 +65,6 @@ public:
 	int  indexOf(T) const;
 	int  lastIndexOf(T) const;
 	T    remove(int) throw (IndexOutOfBounds);
-	bool removeFirstOcurrence(T);
-	bool removeLastOcurrence(T);
 	void printL();
 
 private:
@@ -372,12 +370,45 @@ T List<T>::removeCurrent(ListIterator<T> &itr) throw (IllegalAction) {
 
 template <class T>
 void List<T>::printL(){
-    Link<T> *p;         //Creamos un nuevo nodo
-    p = head;           //El nuevo nodo apunta a la lista
-    while(p != NULL){   //Recorremos toda la lista
-        cout<<p->value<<"\n";
+    Link<T> *p;
+    int i = 0;
+    p = head;
+    while(p != 0){
+        cout<<i<<" "<<p->value<<"\n";
         p = p->next;
+        i++;
     }
+}
+
+template <class T>
+T List<T>::remove(int index) throw (IndexOutOfBounds) {
+	int pos;
+	T val;
+	Link<T> *p, *temp;
+
+	if (index < 0 || index >= size) {
+		throw IndexOutOfBounds();
+	}
+
+	if (index == 0) {
+		return removeFirst();
+	}
+
+	p = head;
+	pos = 0;
+	while (pos != index) {
+		temp = p;
+		p = p->next;
+		pos++;
+	}
+
+	val = p->value;
+	temp->next = p->next;
+	size--;
+
+	delete p;
+
+	return val;
 }
 
 template <class T>
