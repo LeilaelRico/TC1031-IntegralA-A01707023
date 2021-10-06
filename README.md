@@ -26,6 +26,9 @@ Hasta el momento, el único método a analizar es:
 ### Implementa mecanismos de lectura de archivos correctos y útiles dentro de un programa.   
 Los alimentos se encuentran registrados dentro del archivo *"datost.txt"* los cuales son leídos mediante la primera opción.   
 
+# Avance 2   
+*Nota: Por la complejidad que se presentaba a la hora de almacenar datos de una clase, el archivo se revirtió a una versión en la cual no se hacía uso de la misma.*   
+
 
 **Hecho por:**  
 Cristian Leilael Rico Espinosa.  
