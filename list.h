@@ -11,6 +11,9 @@
 #include <string>
 #include <sstream>
 #include "exception.h"
+#include <iostream>
+
+using namespace std;
 
 template <class T> class List;
 template <class T> class ListIterator;
