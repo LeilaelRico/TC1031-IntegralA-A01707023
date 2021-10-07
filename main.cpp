@@ -26,8 +26,7 @@ void menu()
     cout<<"2. Mostrar los datos."<<endl;
     cout<<"3. Agrega un alimento."<<endl;
     cout<<"4. Elimina un alimento."<<endl;
-    cout<<"5. Ordenar los nombres."<<endl;
-    cout<<"6. Salir."<<endl;
+    cout<<"5. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
@@ -95,7 +94,7 @@ int main(){
                 neoCom.append(pro);
 
                 comid.add(neoCom);
-                cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opción 2' en el menú."<<endl;
+                cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
 
             break;
 
@@ -108,14 +107,7 @@ int main(){
                 cin>>el;
 
                 comid.remove(el);
-                cout<<"Elemento eliminado, para comprobarlo, utilice la 'opción 2' en el menú."<<endl;
-
-            break;
-
-
-            case 5:
-
-                cout<<"Algo"<<endl;
+                cout<<"Elemento eliminado, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
 
             break;
 
@@ -124,7 +116,7 @@ int main(){
 
 
     }
-    while(op != 6);
+    while(op != 5);
     cout<<"Salida\n";
 
 
