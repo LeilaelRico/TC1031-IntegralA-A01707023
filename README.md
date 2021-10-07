@@ -27,10 +27,20 @@ Hasta el momento, el único método a analizar es:
 Los alimentos se encuentran registrados dentro del archivo *"datost.txt"* los cuales son leídos mediante la primera opción.   
 
 # Avance 2   
-*Nota: Por la complejidad que se presentaba a la hora de almacenar datos de una clase, el archivo se revirtió a una versión en la cual no se hacía uso de la misma.*   
+*Nota: Por la complejidad que se presentaba a la hora de almacenar datos de una clase, el archivo se revirtió a una versión en la cual no se hacía uso de la misma **(avance1OrdenaSim)**.*   
 
 Para ver el avance anterior, puede cambiar a la rama **Avance 1**.   
 
+En este avance, la información procedente del archivo es almacenada directamente en una lista; las funciones nuevas que se pueden realizar son:   
+* Agregar un alimento: Como su nombre lo indica, el usuario puede agregar información sobre un alimento.
+* Eliminar un alimento: El ususario es capaz de eliminar la información sobre algún alimento especificando la posición en la que este se encuentre dentro de la lista.   
+
+*Se pierde la opción de ordenar un arreglo*.
+
+## SICT0301B: Evalúa los componentes
+
+### Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes.
+Al implementar una lista ligada simple, el poder acceder a ella tendría una complejidad de ***O(n)*** y tanto la inserción y supresión de un elemento se ejecuta con una complejidad de ***O(1)***, todo esto para el **peor de los casos**.
 
 
 **Hecho por:**  
