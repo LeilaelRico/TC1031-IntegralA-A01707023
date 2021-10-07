@@ -29,6 +29,9 @@ Los alimentos se encuentran registrados dentro del archivo *"datost.txt"* los cu
 # Avance 2   
 *Nota: Por la complejidad que se presentaba a la hora de almacenar datos de una clase, el archivo se revirtió a una versión en la cual no se hacía uso de la misma.*   
 
+Para ver el avance anterior, puede cambiar a la rama **Avance 1**.   
+
+
 
 **Hecho por:**  
 Cristian Leilael Rico Espinosa.  
