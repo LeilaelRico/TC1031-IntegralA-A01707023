@@ -3,6 +3,8 @@
  * solucion en clase
  *  Created on: 05/08/2015
  *      Author: pperezm
+ * 
+ * 		Minor changes made by Cristian Rico
  */
 
 #ifndef LINKEDLIST_H_
@@ -57,7 +59,7 @@ public:
 	bool contains(T) const;
 	bool empty() const;
 	void clear();
-	std::string toString() const;
+	string toString() const;
 	void operator= (const List&) throw (OutOfMemory);
 
 	void addBefore(ListIterator<T>&, T) throw (IllegalAction, OutOfMemory);
@@ -217,15 +219,13 @@ std::string List<T>::toString() const {
 	Link<T> *p;
 
 	p = head;
-	aux << "[";
 	while (p != 0) {
 		aux << p->value;
 		if (p->next != 0) {
-			aux << ", ";
+			aux << "\n";
 		}
 		p = p->next;
 	}
-	aux << "]";
 	return aux.str();
 }
 

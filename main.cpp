@@ -14,7 +14,7 @@ Matrícula: A01707023.
 #include <iterator>
 #include <string>
 
-// #include "sorts.h"
+#include "sorts.h"
 #include "list.h"
 
 using namespace std;
@@ -117,7 +117,15 @@ int main(){
 
     }
     while(op != 5);
-    cout<<"Salida\n";
+    ofstream final("datosed.txt");
+                 if(final.is_open()){
+                     final<<comid.toString()<<endl;
+                     final.close();
+                  cout<<"\nEdicion de datos completa.\n\n";
+                 }
+                 else{
+                   cout<<"\nNo se pudo generar final\n\n";
+                 }
 
 
     return 0;
