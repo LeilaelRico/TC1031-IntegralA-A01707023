@@ -14,7 +14,7 @@ Matrícula: A01707023.
 #include <iterator>
 #include <string>
 
-#include "sorts.h"
+// #include "sorts.h"
 #include "list.h"
 
 using namespace std;
