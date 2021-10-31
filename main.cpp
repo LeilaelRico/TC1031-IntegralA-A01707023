@@ -232,9 +232,7 @@ int main(){
                     Sorts<string> sorts;
 
                     orcom = originalnom;
-                    sorts.ordenaMerge(orcom);
-
-                    i = 0;       
+                    sorts.ordenaMerge(orcom);   
 
                     cout << "\nOrdenado:\n" << arrayToString(orcom) << "\n";
 
