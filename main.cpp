@@ -234,7 +234,19 @@ int main(){
                     orcom = originalnom;
                     sorts.ordenaMerge(orcom);   
 
-                    cout << "\nOrdenado:\n" << arrayToString(orcom) << "\n";
+
+                    for (i = 0; i<orcom.size(); i++){
+                        for (int j = 0; j<orcom.size(); j++){
+                            if(orcom[i] == comid[j].getNombre()){
+                            cout<<"\n--------------------------------";
+                            cout<<"\nNombre: "<<comid[j].getNombre()<<
+                            ", "<<"Cal: "<<comid[j].getCalorias()<<
+                            ", "<<"Carb: "<<comid[j].getCarbohidratos()<<
+                            ", "<<"Lip: "<<comid[j].getLipidos()<<
+                            ", "<<"Prot: "<<comid[j].getProteinas()<<endl;
+                            }
+                        }
+                    }
 
                     break;
             }
