@@ -27,3 +27,13 @@ Torikatsu 190 1 13 19
 Spaguetti 293 53.62 3.99 9.87
 Molletes(2) 440 88.26 2.84 13.68
 Nito 246 36 10 3
+Donas(2) 220 26 12 2
+Sopa_de_verduras 98 12 4.45 4.12
+Pizza(2) 552 64.9 20.5 26.28
+Yoghurt_natural 149 11.42 7.96 8.5
+Nuggets(8) 1792 173.68 93.68 64.48
+Caldo_de_pollo 12 1.51 0.29 0.95
+Cafe_con_leche 135 12.36 5.51 8.81
+Arroz_blanco(1_taza) 675 147.91 1.22 13.19
+Pan_blanco(4_piezas) 236 46.6 2.4 6.8
+Bistec 514 0 30.62 53.67
