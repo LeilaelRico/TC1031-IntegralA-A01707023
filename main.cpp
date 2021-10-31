@@ -19,6 +19,7 @@ Matrícula: A01707023.
 
 #include "sorts.h"
 #include "list.h"
+#include "bst.h"
 #include "comida.h"
 
 using namespace std;
@@ -108,7 +109,7 @@ int main(){
                 neoCom.append(pro);
 
                 lscomid.add(neoCom);
-                cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
+                cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opcion 1' en el menu."<<endl;
 
             break;
 
@@ -125,7 +126,7 @@ int main(){
                 } else{
 
                     lscomid.remove(el);
-                    cout<<"Elemento eliminado, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
+                    cout<<"Elemento eliminado, para comprobarlo, utilice la 'opcion 1' en el menu."<<endl;
 
                 }
 
@@ -161,6 +162,7 @@ int main(){
     vector<Comida> comid;
     Comida c;
     vector<string> vc;
+    BST<int> bst;
 
 
     while(ficla.peek()!=EOF)
@@ -199,7 +201,7 @@ int main(){
                         ", "<<"Lipidos: "<<comid[i].getLipidos()<<
                         ", "<<"Proteinas: "<<comid[i].getProteinas()<<endl;
                     }
-                    break;
+                break;
 
 
                 case 2:
@@ -232,7 +234,9 @@ int main(){
                         }
                     }
 
-                    break;
+                break;
+
+
             }
         }
         while(opc != 3);
