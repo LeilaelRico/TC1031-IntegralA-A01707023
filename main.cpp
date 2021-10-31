@@ -179,7 +179,26 @@ int main(){
     vector<Comida> comid;
     Comida c;
     vector<string> vc;
-    string arr[28];
+
+
+    while(ficla.peek()!=EOF)
+    {
+
+        if(ficla>>nam>>cl>>cb>>lp>>pt)
+        {
+            c.setNombre(nam);
+            c.setCalorias(cl);
+            c.setCarbohidratos(cb);
+            c.setLipidos(lp);
+            c.setProteinas(pt);
+            comid.push_back(c);
+        }
+    }
+    ficla.close();
+
+
+    string arr[comid.size()];
+
 
     do{
         menu1();
@@ -188,7 +207,7 @@ int main(){
 
             switch(opc){
                 case 1:
-                    while(ficla.peek()!=EOF)
+                    /*while(ficla.peek()!=EOF)
                     {
 
                         if(ficla>>nam>>cl>>cb>>lp>>pt)
@@ -201,7 +220,7 @@ int main(){
                             comid.push_back(c);
                         }
                     }
-                    ficla.close();
+                    ficla.close();*/
                     cout<<"Datos Cargados"<<endl;
                         break;
 
