@@ -40,8 +40,9 @@ void menu1()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Mostrar los datos."<<endl;
-    cout<<"2. Ordenar por nombres."<<endl;
-    cout<<"3. Salir."<<endl;
+    cout<<"2. Ordenar por calorias."<<endl;
+    cout<<"3. Ordenar por nombres."<<endl;
+    cout<<"4. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
@@ -182,6 +183,7 @@ int main(){
 
 
     string arr[comid.size()];
+    int arrint[comid.size()];
 
     do{
         menu1();
@@ -204,7 +206,20 @@ int main(){
                 break;
 
 
+
                 case 2:
+                    for (i = 0; i<comid.size(); i++){
+                        arrint[i] = {comid[i].getCalorias()};
+                    } 
+
+                    for (i = 0; i<comid.size(); i++){
+                        cout<< i<<" "<<arrint[i]<<endl;
+                    }
+
+                break;
+
+
+                case 3:
 
                     for (i = 0; i<comid.size(); i++){
                         arr[i] = {comid[i].getNombre()};
@@ -239,7 +254,7 @@ int main(){
 
             }
         }
-        while(opc != 3);
+        while(opc != 4);
         cout<<"Salida\n";
 
 
