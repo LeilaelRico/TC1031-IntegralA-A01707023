@@ -184,6 +184,7 @@ int main(){
 
     string arr[comid.size()];
     int arrint[comid.size()];
+    int aarne[comid.size()];
 
     do{
         menu1();
@@ -210,11 +211,17 @@ int main(){
                 case 2:
                     for (i = 0; i<comid.size(); i++){
                         arrint[i] = {comid[i].getCalorias()};
+                        bst.add(arrint[i]);
                     } 
 
-                    for (i = 0; i<comid.size(); i++){
-                        cout<< i<<" "<<arrint[i]<<endl;
-                    }
+                    /*for (i = 0; i<comid.size(); i++){
+                        //cout<< i<<" "<<arrint[i]<<endl;
+                        bst.add(arrint[i]);
+                    }*/
+
+                    //cout<<bst.inorder();
+                    cout<<bst.visit();
+                    
 
                 break;
 

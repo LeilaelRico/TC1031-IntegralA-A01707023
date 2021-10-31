@@ -179,7 +179,7 @@ void Node<T>::inorder(stringstream &auxiliar) const{
 	if (left != 0) {
 		left->inorder(auxiliar);
 	}
-	if (auxiliar.tellp() != 1) {
+	if (auxiliar.tellp() != 0) {
 		auxiliar << " ";
 	}
 	auxiliar << value;
@@ -336,11 +336,11 @@ template <class T>
 string BST<T>::preorder() const {
 	stringstream auxiliar;
 
-	auxiliar << "[";
+	//auxiliar << "[";
 	if (!empty()) {
 		root->preorder(auxiliar);
 	}
-	auxiliar << "]";
+	//auxiliar << "]";
 	return auxiliar.str();
 }
 
@@ -349,11 +349,11 @@ template <class T>
 string BST<T>::inorder() const {
 	stringstream auxiliar;
 
-	auxiliar << "[";
+	//auxiliar << "[";
 	if (!empty()) {
 		root->inorder(auxiliar);
 	}
-	auxiliar << "]";
+	//auxiliar << "]";
 	return auxiliar.str();
 }
 
@@ -361,11 +361,11 @@ template <class T>
 string BST<T>::postorder() const {
 	stringstream auxiliar;
 
-	auxiliar << "[";
+	//auxiliar << "[";
 	if (!empty()) {
 		root->postorder(auxiliar);
 	}
-	auxiliar << "]";
+	//auxiliar << "]";
 	return auxiliar.str();
 }
 
