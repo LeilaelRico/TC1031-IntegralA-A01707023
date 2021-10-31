@@ -27,11 +27,10 @@ using namespace std;
 void menu()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
-    cout<<"1. Leer los datos."<<endl;
-    cout<<"2. Mostrar los datos."<<endl;
-    cout<<"3. Agrega un alimento."<<endl;
-    cout<<"4. Elimina un alimento."<<endl;
-    cout<<"5. Salir."<<endl;
+    cout<<"1. Mostrar los datos."<<endl;
+    cout<<"2. Agrega un alimento."<<endl;
+    cout<<"3. Elimina un alimento."<<endl;
+    cout<<"4. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
@@ -39,10 +38,9 @@ void menu()
 void menu1()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
-    cout<<"1. Opcion libre."<<endl;
-    cout<<"2. Mostrar los datos."<<endl;
-    cout<<"3. Ordenar los nombres."<<endl;
-    cout<<"4. Salir."<<endl;
+    cout<<"1. Mostrar los datos."<<endl;
+    cout<<"2. Ordenar los nombres."<<endl;
+    cout<<"3. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
@@ -70,6 +68,15 @@ int main(){
     ifstream myfile ("datost.txt");
 
 
+    while(getline(myfile,comList)){
+        if(comList.size() > 0){
+            lscomid.add(comList);
+        }
+    }
+    myfile.close();
+    cout<<"Datos Cargados"<<endl;
+
+
     do{
     menu();
     cout<<"Elige una de las opciones: ";
@@ -79,26 +86,13 @@ int main(){
 
             case 1:
 
-                while(getline(myfile,comList)){
-                    if(comList.size() > 0){
-                        lscomid.add(comList);
-                    }
-                }
-                myfile.close();
-                cout<<"Datos Cargados"<<endl;
-
-            break;
-
-
-            case 2:
-
                 lscomid.printL();
                 cout<<endl;
 
             break;
 
 
-            case 3:
+            case 2:
 
                 cout<<"Especifica el nombre: ";
                 cin>>nom;
@@ -131,7 +125,7 @@ int main(){
             break;
 
 
-            case 4:
+            case 3:
 
                 lscomid.printL();
 
@@ -156,7 +150,7 @@ int main(){
 
 
     }
-    while(op != 5);
+    while(op != 4);
     lscomid.remove(0);
     ofstream final("datosed.txt");
                  if(final.is_open()){
@@ -206,12 +200,9 @@ int main(){
         cin>>opc;
 
             switch(opc){
+
+
                 case 1:
-                    cout<<"Op Libre"<<endl;
-                        break;
-
-
-                case 2:
                     for (i = 0; i<comid.size(); i++){
                         cout<<"\n--------------------------------";
                             cout<<"\nNombre: "<<comid[i].getNombre();
@@ -224,15 +215,15 @@ int main(){
                     break;
 
 
-                case 3:
+                case 2:
 
                     for (i = 0; i<comid.size(); i++){
                         arr[i] = {comid[i].getNombre()};
                     }
 
-                    for (i = 0; i<comid.size(); i++){
+                    /*for (i = 0; i<comid.size(); i++){
                         cout<< i<<" "<<arr[i]<<endl;
-                    }
+                    }*/
 
 
                     vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
@@ -243,12 +234,14 @@ int main(){
                     orcom = originalnom;
                     sorts.ordenaMerge(orcom);
 
+                    i = 0;       
+
                     cout << "\nOrdenado:\n" << arrayToString(orcom) << "\n";
 
                     break;
             }
         }
-        while(opc != 4);
+        while(opc != 3);
         cout<<"Salida\n";
 
 
