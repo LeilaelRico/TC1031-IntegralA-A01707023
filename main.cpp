@@ -208,10 +208,6 @@ int main(){
                         arr[i] = {comid[i].getNombre()};
                     }
 
-                    /*for (i = 0; i<comid.size(); i++){
-                        cout<< i<<" "<<arr[i]<<endl;
-                    }*/
-
 
                     vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
 
@@ -228,10 +224,10 @@ int main(){
 
                                 cout<<"\n--------------------------------";
                                 cout<<"\nNombre: "<<comid[j].getNombre()<<
-                                ", "<<"Cal: "<<comid[j].getCalorias()<<
-                                ", "<<"Carb: "<<comid[j].getCarbohidratos()<<
-                                ", "<<"Lip: "<<comid[j].getLipidos()<<
-                                ", "<<"Prot: "<<comid[j].getProteinas()<<endl;
+                                ", "<<"Calorias: "<<comid[j].getCalorias()<<
+                                ", "<<"Carbohidratos: "<<comid[j].getCarbohidratos()<<
+                                ", "<<"Lipidos: "<<comid[j].getLipidos()<<
+                                ", "<<"Proteinas: "<<comid[j].getProteinas()<<endl;
                             }
                         }
                     }
