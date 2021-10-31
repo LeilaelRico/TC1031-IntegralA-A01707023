@@ -40,9 +40,10 @@ void menu1()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Mostrar los datos."<<endl;
-    cout<<"2. Ordenar por calorias."<<endl;
-    cout<<"3. Ordenar por nombres."<<endl;
-    cout<<"4. Salir."<<endl;
+    cout<<"2. Buscar por nombre de alimento."<<endl;
+    cout<<"3. Ordenar por calorias."<<endl;
+    cout<<"4. Ordenar por nombres."<<endl;
+    cout<<"5. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
@@ -158,7 +159,7 @@ int main(){
 
     ifstream ficla("datosed.txt");
     ifstream abcalo("cal.txt");
-    string nam;
+    string nam, busnom;
     int cl, i, opc;
     float cb, lp, pt;
     vector<Comida> comid;
@@ -210,8 +211,27 @@ int main(){
                 break;
 
 
-
                 case 2:
+
+                    cout<< "Ingrese el nombre del alimento a buscar: ";
+                    cin>> busnom;
+
+                    for(i = 0; i<comid.size(); i++){
+                        if(busnom == comid[i].getNombre()){
+                            cout<<"\nNombre: "<<comid[i].getNombre()<<
+                            ", "<<"Calorias: "<<comid[i].getCalorias()<<
+                            ", "<<"Carbohidratos: "<<comid[i].getCarbohidratos()<<
+                            ", "<<"Lipidos: "<<comid[i].getLipidos()<<
+                            ", "<<"Proteinas: "<<comid[i].getProteinas()<<endl;
+                        }
+                    }
+                    cout<<"\n***Si el valor buscado no aparece, esto quiere decir que no se encuentra dentro de la lista";
+                    cout<<"\no que la forma en la que se escribio no es la misma, porfavor, revise que se respeten los '_' y las mayusculas.***"<<endl;
+
+                break;
+
+
+                case 3:
 
                     for (i = 0; i<comid.size(); i++){
                         bst.add(comid[i].getCalorias());
@@ -259,7 +279,7 @@ int main(){
                 break;
 
 
-                case 3:
+                case 4:
 
                     for (i = 0; i<comid.size(); i++){
                         arr[i] = {comid[i].getNombre()};
@@ -293,7 +313,7 @@ int main(){
 
             }
         }
-        while(opc != 4);
+        while(opc != 5);
         cout<<"Salida\n";
 
 
