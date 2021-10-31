@@ -39,7 +39,7 @@ void menu1()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Mostrar los datos."<<endl;
-    cout<<"2. Ordenar los nombres."<<endl;
+    cout<<"2. Ordenar por nombres."<<endl;
     cout<<"3. Salir."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
@@ -207,6 +207,10 @@ int main(){
                     for (i = 0; i<comid.size(); i++){
                         arr[i] = {comid[i].getNombre()};
                     }
+
+                    /*for (i = 0; i<comid.size(); i++){
+                        cout<< i<<" "<<arr[i]<<endl;
+                    }*/
 
 
                     vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
