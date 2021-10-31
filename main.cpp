@@ -45,19 +45,6 @@ void menu1()
 }
 
 
-template <class T>
-string arrayToString(const vector<T> &v) {
-	stringstream aux;
-
-	aux << "0 " << v[0];
-	for (int i = 1; i < v.size(); i++) {
-		aux << "\n" << i << " " << v[i];
-	}
-
-	return aux.str();
-}
-
-
 int main(){
 
 
