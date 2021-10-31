@@ -191,13 +191,13 @@ int main(){
 
                 case 1:
                     for (i = 0; i<comid.size(); i++){
+                        
                         cout<<"\n--------------------------------";
-                            cout<<"\nNombre: "<<comid[i].getNombre();
-                            cout<<"\nCalorias: "<<comid[i].getCalorias();
-                            cout<<"\nCarbohidratos: "<<comid[i].getCarbohidratos();
-                            cout<<"\nLipidos: "<<comid[i].getLipidos();
-                            cout<<"\nProteinas: "<<comid[i].getProteinas();
-                            cout<<"\n--------------------------------";
+                        cout<<"\nNombre: "<<comid[i].getNombre()<<
+                        ", "<<"Calorias: "<<comid[i].getCalorias()<<
+                        ", "<<"Carbohidratos: "<<comid[i].getCarbohidratos()<<
+                        ", "<<"Lipidos: "<<comid[i].getLipidos()<<
+                        ", "<<"Proteinas: "<<comid[i].getProteinas()<<endl;
                     }
                     break;
 
@@ -225,12 +225,13 @@ int main(){
                     for (i = 0; i<orcom.size(); i++){
                         for (int j = 0; j<orcom.size(); j++){
                             if(orcom[i] == comid[j].getNombre()){
-                            cout<<"\n--------------------------------";
-                            cout<<"\nNombre: "<<comid[j].getNombre()<<
-                            ", "<<"Cal: "<<comid[j].getCalorias()<<
-                            ", "<<"Carb: "<<comid[j].getCarbohidratos()<<
-                            ", "<<"Lip: "<<comid[j].getLipidos()<<
-                            ", "<<"Prot: "<<comid[j].getProteinas()<<endl;
+
+                                cout<<"\n--------------------------------";
+                                cout<<"\nNombre: "<<comid[j].getNombre()<<
+                                ", "<<"Cal: "<<comid[j].getCalorias()<<
+                                ", "<<"Carb: "<<comid[j].getCarbohidratos()<<
+                                ", "<<"Lip: "<<comid[j].getLipidos()<<
+                                ", "<<"Prot: "<<comid[j].getProteinas()<<endl;
                             }
                         }
                     }
