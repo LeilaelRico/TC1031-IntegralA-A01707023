@@ -39,7 +39,7 @@ void menu()
 void menu1()
 {
     cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
-    cout<<"1. Leer los datos."<<endl;
+    cout<<"1. Opcion libre."<<endl;
     cout<<"2. Mostrar los datos."<<endl;
     cout<<"3. Ordenar los nombres."<<endl;
     cout<<"4. Salir."<<endl;
@@ -207,21 +207,7 @@ int main(){
 
             switch(opc){
                 case 1:
-                    /*while(ficla.peek()!=EOF)
-                    {
-
-                        if(ficla>>nam>>cl>>cb>>lp>>pt)
-                        {
-                            c.setNombre(nam);
-                            c.setCalorias(cl);
-                            c.setCarbohidratos(cb);
-                            c.setLipidos(lp);
-                            c.setProteinas(pt);
-                            comid.push_back(c);
-                        }
-                    }
-                    ficla.close();*/
-                    cout<<"Datos Cargados"<<endl;
+                    cout<<"Op Libre"<<endl;
                         break;
 
 
