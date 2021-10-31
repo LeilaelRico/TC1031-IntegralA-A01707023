@@ -208,10 +208,6 @@ int main(){
                         arr[i] = {comid[i].getNombre()};
                     }
 
-                    /*for (i = 0; i<comid.size(); i++){
-                        cout<< i<<" "<<arr[i]<<endl;
-                    }*/
-
 
                     vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
 
