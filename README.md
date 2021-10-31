@@ -38,6 +38,18 @@ En este avance, la información procedente del archivo es almacenada directament
 ### Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes.
 Al implementar una lista ligada simple, el poder acceder a ella tendría una complejidad de ***O(n)*** y tanto la inserción y supresión de un elemento se ejecuta con una complejidad de ***O(1)***, todo esto para el **peor de los casos**.
 
+# Avance 3
+
+Para este avance, se integran los resultados de las dos actividades anteriores.   
+Al archivo '.txt' inicial se le agregaron nuevos elementos y se integraron ambos menús en el main; el programa iniciará brindándole al usuario la oportunidad de agregar y eliminar datos para que posteriromente los cambios realizados sean guardados en un nuevo archivo de texto que será utilizado para generar un vector de tipo *comida* cuyos elementos serán ocupados para llevar un ordenamiento ya sea por medio de un **Merge** o haciendo uso de un **Árbol Binario**.  
+
+## SICT0301B: Evalúa los componentes
+
+### Hace un análisis de complejidad correcto y completo para todo el programa y sus compenetes.
+* *ordenaMerge* posee una complejidad de ***O(n log(n))*** para todos sus casos con una complejidad espacial de ***O(n)***.
+* Al implementar una lista ligada simple, el poder acceder a ella tendría una complejidad de ***O(n)*** y tanto la inserción y supresión de un elemento se ejecuta con una complejidad de ***O(1)***, todo esto para el **peor de los casos**.
+* El uso de un **Árbol de Búsqueda Binaria** posee una complejidad de ***O(n)*** para los *peores casos* en inserción de datos, el acceso al árbol y la búsqueda de valores.   
+
 
 **Hecho por:**  
 Cristian Leilael Rico Espinosa.  
