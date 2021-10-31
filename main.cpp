@@ -30,7 +30,7 @@ void menu()
     cout<<"1. Mostrar los datos."<<endl;
     cout<<"2. Agrega un alimento."<<endl;
     cout<<"3. Elimina un alimento."<<endl;
-    cout<<"4. Salir."<<endl;
+    cout<<"4. Terminar con la edicion."<<endl;
     cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
@@ -63,6 +63,7 @@ int main(){
     myfile.close();
     cout<<"Datos Cargados"<<endl;
 
+    cout<<"El programa permite editar los datos proporcionados en el .txt, en caso de no querer agregar o eliminar un elemento de la lista,\nsimplemente elija la 'opcion 4' para continuar.\n";
 
     do{
     menu();
@@ -179,7 +180,6 @@ int main(){
 
 
     string arr[comid.size()];
-
 
     do{
         menu1();
