@@ -27,23 +27,23 @@ using namespace std;
 
 void menu()
 {
-    cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+    cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Mostrar los datos."<<endl;
     cout<<"2. Agrega un alimento."<<endl;
     cout<<"3. Elimina un alimento."<<endl;
     cout<<"4. Terminar con la edicion."<<endl;
-    cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+    cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
 
 void menu1()
 {
-    cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+    cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
     cout<<"1. Mostrar los datos."<<endl;
     cout<<"2. Ordenar por calorias."<<endl;
     cout<<"3. Ordenar por nombres."<<endl;
     cout<<"4. Salir."<<endl;
-    cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+    cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
 
@@ -157,6 +157,7 @@ int main(){
 
 
     ifstream ficla("datosed.txt");
+    ifstream abcalo("cal.txt");
     string nam;
     int cl, i, opc;
     float cb, lp, pt;
@@ -181,10 +182,12 @@ int main(){
     }
     ficla.close();
 
-
+    ofstream calo("cal.txt");
     string arr[comid.size()];
     int arrint[comid.size()];
-    int aarne[comid.size()];
+
+    vector<string> orcom;
+    Sorts<string> sorts;
 
     do{
         menu1();
@@ -209,19 +212,49 @@ int main(){
 
 
                 case 2:
+
                     for (i = 0; i<comid.size(); i++){
-                        arrint[i] = {comid[i].getCalorias()};
-                        bst.add(arrint[i]);
+                        bst.add(comid[i].getCalorias());
                     } 
 
-                    /*for (i = 0; i<comid.size(); i++){
-                        //cout<< i<<" "<<arrint[i]<<endl;
-                        bst.add(arrint[i]);
-                    }*/
-
                     //cout<<bst.inorder();
-                    cout<<bst.visit();
+
                     
+                    if(calo.is_open()){
+                        calo<<bst.inorder()<<endl;
+                        calo.close();
+                    }
+                    else{
+                    cout<<"\nError al crear un archivo.\n";
+                    }
+                    
+
+                    if(abcalo.peek()!=EOF)
+                    {
+                        for (int i = 0; i < comid.size(); i++)
+                        {
+                            abcalo >> arrint[i];
+                            //cout << arrint[i] << " ";
+                        }
+                    }
+
+                    ficla.close();
+
+
+                    for (i = 0; i<comid.size(); i++){
+                        for (int j = 0; j<comid.size(); j++){
+                            if(arrint[i] == comid[j].getCalorias()){
+
+                                cout<<"\n--------------------------------";
+                                cout<<"\nNombre: "<<comid[j].getNombre()<<
+                                ", "<<"Calorias: "<<comid[j].getCalorias()<<
+                                ", "<<"Carbohidratos: "<<comid[j].getCarbohidratos()<<
+                                ", "<<"Lipidos: "<<comid[j].getLipidos()<<
+                                ", "<<"Proteinas: "<<comid[j].getProteinas()<<endl;
+                            }
+                        }
+                    }
+                                    
 
                 break;
 
@@ -235,8 +268,7 @@ int main(){
 
                     vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
 
-                    vector<string> orcom;
-                    Sorts<string> sorts;
+                    
 
                     orcom = originalnom;
                     sorts.ordenaMerge(orcom);   
