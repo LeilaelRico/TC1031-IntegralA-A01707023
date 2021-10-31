@@ -32,9 +32,9 @@ void menu()
 
 
 int main(){
-    int op = 0;
+    int op = 0, op1 = 0;
     int el;
-    List<string>comid;
+    List<string>lscomid;
     string str, comList, nom, cal, car, li, pro, neoCom;
     ifstream myfile ("datost.txt");
 
@@ -49,7 +49,7 @@ int main(){
 
                 while(getline(myfile,comList)){
                     if(comList.size() > 0){
-                        comid.add(comList);
+                        lscomid.add(comList);
                     }
                 }
                 myfile.close();
@@ -60,7 +60,7 @@ int main(){
 
             case 2:
 
-                comid.printL();
+                lscomid.printL();
                 cout<<endl;
 
             break;
@@ -93,7 +93,7 @@ int main(){
                 neoCom.append(" ");
                 neoCom.append(pro);
 
-                comid.add(neoCom);
+                lscomid.add(neoCom);
                 cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
 
             break;
@@ -101,13 +101,21 @@ int main(){
 
             case 4:
 
-                comid.printL();
+                lscomid.printL();
 
                 cout<<"Introduzca el numero del elemento a borrar: ";
                 cin>>el;
 
-                comid.remove(el);
-                cout<<"Elemento eliminado, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
+                if (el == 0){
+                    cout<<"El encabezado no puede ser borrado, intente con otro elemento."<<endl;
+                } else{
+
+                    lscomid.remove(el);
+                    cout<<"Elemento eliminado, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
+
+                }
+
+                
 
             break;
 
@@ -117,14 +125,15 @@ int main(){
 
     }
     while(op != 5);
+    lscomid.remove(0);
     ofstream final("datosed.txt");
                  if(final.is_open()){
-                     final<<comid.toString()<<endl;
+                     final<<lscomid.toString()<<endl;
                      final.close();
-                  cout<<"\nEdicion de datos completa.\n\n";
+                  cout<<"\nEdicion de datos completa.\n";
                  }
                  else{
-                   cout<<"\nNo se pudo generar final\n\n";
+                   cout<<"\nError al crear un archivo.\n";
                  }
 
 
