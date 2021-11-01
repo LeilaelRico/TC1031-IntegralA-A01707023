@@ -13,30 +13,60 @@ Matrícula: A01707023.
 #include <list>
 #include <iterator>
 #include <string>
+#include <sstream>
+#include <cstring>
+
 
 #include "sorts.h"
 #include "list.h"
+#include "bst.h"
+#include "comida.h"
 
 using namespace std;
 
+
 void menu()
 {
-    cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
-    cout<<"1. Leer los datos."<<endl;
-    cout<<"2. Mostrar los datos."<<endl;
-    cout<<"3. Agrega un alimento."<<endl;
-    cout<<"4. Elimina un alimento."<<endl;
+    cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+    cout<<"1. Mostrar los datos."<<endl;
+    cout<<"2. Agrega un alimento."<<endl;
+    cout<<"3. Elimina un alimento."<<endl;
+    cout<<"4. Terminar con la edicion."<<endl;
+    cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+}
+
+
+void menu1()
+{
+    cout<<"\n--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+    cout<<"1. Mostrar los datos."<<endl;
+    cout<<"2. Buscar por nombre de alimento."<<endl;
+    cout<<"3. Ordenar por calorias."<<endl;
+    cout<<"4. Ordenar por nombres."<<endl;
     cout<<"5. Salir."<<endl;
-    cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
+    cout<<"--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**"<<endl;
 }
 
 
 int main(){
+
+
     int op = 0;
     int el;
-    List<string>comid;
+    List<string>lscomid;
     string str, comList, nom, cal, car, li, pro, neoCom;
     ifstream myfile ("datost.txt");
+
+
+    while(getline(myfile,comList)){
+        if(comList.size() > 0){
+            lscomid.add(comList);
+        }
+    }
+    myfile.close();
+    cout<<"Datos Cargados"<<endl;
+
+    cout<<"El programa permite editar los datos proporcionados en el .txt, en caso de no querer agregar o eliminar un elemento de la lista,\nsimplemente elija la 'opcion 4' para continuar.\n";
 
     do{
     menu();
@@ -47,26 +77,13 @@ int main(){
 
             case 1:
 
-                while(getline(myfile,comList)){
-                    if(comList.size() > 0){
-                        comid.add(comList);
-                    }
-                }
-                myfile.close();
-                cout<<"Datos Cargados"<<endl;
-
-            break;
-
-
-            case 2:
-
-                comid.printL();
+                lscomid.printL();
                 cout<<endl;
 
             break;
 
 
-            case 3:
+            case 2:
 
                 cout<<"Especifica el nombre: ";
                 cin>>nom;
@@ -93,21 +110,29 @@ int main(){
                 neoCom.append(" ");
                 neoCom.append(pro);
 
-                comid.add(neoCom);
-                cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
+                lscomid.add(neoCom);
+                cout<<"Elemento agregado correctamente, para comprobarlo, utilice la 'opcion 1' en el menu."<<endl;
 
             break;
 
 
-            case 4:
+            case 3:
 
-                comid.printL();
+                lscomid.printL();
 
                 cout<<"Introduzca el numero del elemento a borrar: ";
                 cin>>el;
 
-                comid.remove(el);
-                cout<<"Elemento eliminado, para comprobarlo, utilice la 'opcion 2' en el menu."<<endl;
+                if (el == 0){
+                    cout<<"El encabezado no puede ser borrado, intente con otro elemento."<<endl;
+                } else{
+
+                    lscomid.remove(el);
+                    cout<<"Elemento eliminado, para comprobarlo, utilice la 'opcion 1' en el menu."<<endl;
+
+                }
+
+                
 
             break;
 
@@ -116,8 +141,180 @@ int main(){
 
 
     }
-    while(op != 5);
-    cout<<"Salida\n";
+    while(op != 4);
+    lscomid.remove(0);
+    ofstream final("datosed.txt");
+                 if(final.is_open()){
+                     final<<lscomid.toString()<<endl;
+                     final.close();
+                  cout<<"\nEdicion de datos completa.\n";
+                 }
+                 else{
+                   cout<<"\nError al crear un archivo.\n";
+                 }
+
+
+    /************************* Uso de clase y ejecución de segundo menú *************************/
+
+
+    ifstream ficla("datosed.txt");
+    ifstream abcalo("cal.txt");
+    string nam, busnom;
+    int cl, i, opc;
+    float cb, lp, pt;
+    vector<Comida> comid;
+    Comida c;
+    vector<string> vc;
+    BST<int> bst;
+
+
+    while(ficla.peek()!=EOF)
+    {
+
+        if(ficla>>nam>>cl>>cb>>lp>>pt)
+        {
+            c.setNombre(nam);
+            c.setCalorias(cl);
+            c.setCarbohidratos(cb);
+            c.setLipidos(lp);
+            c.setProteinas(pt);
+            comid.push_back(c);
+        }
+    }
+    ficla.close();
+
+    ofstream calo("cal.txt");
+    string arr[comid.size()];
+    int arrint[comid.size()];
+
+    vector<string> orcom;
+    Sorts<string> sorts;
+
+    do{
+        menu1();
+        cout<<"Elige una de las opciones: ";
+        cin>>opc;
+
+            switch(opc){
+
+
+                case 1:
+                    for (i = 0; i<comid.size(); i++){
+                        
+                        cout<<"\n--------------------------------";
+                        cout<<"\nNombre: "<<comid[i].getNombre()<<
+                        ", "<<"Calorias: "<<comid[i].getCalorias()<<
+                        ", "<<"Carbohidratos: "<<comid[i].getCarbohidratos()<<
+                        ", "<<"Lipidos: "<<comid[i].getLipidos()<<
+                        ", "<<"Proteinas: "<<comid[i].getProteinas()<<endl;
+                    }
+                break;
+
+
+                case 2:
+
+                    cout<< "Ingrese el nombre del alimento a buscar: ";
+                    cin>> busnom;
+
+                    for(i = 0; i<comid.size(); i++){
+                        if(busnom == comid[i].getNombre()){
+                            cout<<"\nNombre: "<<comid[i].getNombre()<<
+                            ", "<<"Calorias: "<<comid[i].getCalorias()<<
+                            ", "<<"Carbohidratos: "<<comid[i].getCarbohidratos()<<
+                            ", "<<"Lipidos: "<<comid[i].getLipidos()<<
+                            ", "<<"Proteinas: "<<comid[i].getProteinas()<<endl;
+                        }
+                    }
+                    cout<<"\n***Si el valor buscado no aparece, esto quiere decir que no se encuentra dentro de la lista";
+                    cout<<"\no que la forma en la que se escribio no es la misma, porfavor, revise que se respeten los '_' y las mayusculas.***"<<endl;
+
+                break;
+
+
+                case 3:
+
+                    for (i = 0; i<comid.size(); i++){
+                        bst.add(comid[i].getCalorias());
+                    } 
+
+                    //cout<<bst.inorder();
+
+                    
+                    if(calo.is_open()){
+                        calo<<bst.inorder()<<endl;
+                        calo.close();
+                    }
+                    else{
+                    cout<<"\nError al crear un archivo.\n";
+                    }
+                    
+
+                    if(abcalo.peek()!=EOF)
+                    {
+                        for (int i = 0; i < comid.size(); i++)
+                        {
+                            abcalo >> arrint[i];
+                            //cout << arrint[i] << " ";
+                        }
+                    }
+
+                    ficla.close();
+
+
+                    for (i = 0; i<comid.size(); i++){
+                        for (int j = 0; j<comid.size(); j++){
+                            if(arrint[i] == comid[j].getCalorias()){
+
+                                cout<<"\n--------------------------------";
+                                cout<<"\nNombre: "<<comid[j].getNombre()<<
+                                ", "<<"Calorias: "<<comid[j].getCalorias()<<
+                                ", "<<"Carbohidratos: "<<comid[j].getCarbohidratos()<<
+                                ", "<<"Lipidos: "<<comid[j].getLipidos()<<
+                                ", "<<"Proteinas: "<<comid[j].getProteinas()<<endl;
+                            }
+                        }
+                    }
+                                    
+
+                break;
+
+
+                case 4:
+
+                    for (i = 0; i<comid.size(); i++){
+                        arr[i] = {comid[i].getNombre()};
+                    }
+
+
+                    vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
+
+                    
+
+                    orcom = originalnom;
+                    sorts.ordenaMerge(orcom);   
+
+
+                    for (i = 0; i<orcom.size(); i++){
+                        for (int j = 0; j<orcom.size(); j++){
+                            if(orcom[i] == comid[j].getNombre()){
+
+                                cout<<"\n--------------------------------";
+                                cout<<"\nNombre: "<<comid[j].getNombre()<<
+                                ", "<<"Calorias: "<<comid[j].getCalorias()<<
+                                ", "<<"Carbohidratos: "<<comid[j].getCarbohidratos()<<
+                                ", "<<"Lipidos: "<<comid[j].getLipidos()<<
+                                ", "<<"Proteinas: "<<comid[j].getProteinas()<<endl;
+                            }
+                        }
+                    }
+
+                break;
+
+
+            }
+        }
+        while(opc != 5);
+        cout<<"Salida\n";
 
 
     return 0;

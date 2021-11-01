@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+datosed.txt
+
+cal.txt
+.gitignore
