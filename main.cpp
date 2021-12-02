@@ -132,7 +132,7 @@ int main(){
 
                 }
 
-                
+
 
             break;
 
@@ -200,7 +200,7 @@ int main(){
 
                 case 1:
                     for (i = 0; i<comid.size(); i++){
-                        
+
                         cout<<"\n--------------------------------";
                         cout<<"\nNombre: "<<comid[i].getNombre()<<
                         ", "<<"Calorias: "<<comid[i].getCalorias()<<
@@ -235,11 +235,11 @@ int main(){
 
                     for (i = 0; i<comid.size(); i++){
                         bst.add(comid[i].getCalorias());
-                    } 
+                    }
 
                     //cout<<bst.inorder();
 
-                    
+
                     if(calo.is_open()){
                         calo<<bst.inorder()<<endl;
                         calo.close();
@@ -247,7 +247,7 @@ int main(){
                     else{
                     cout<<"\nError al crear un archivo.\n";
                     }
-                    
+
 
                     if(abcalo.peek()!=EOF)
                     {
@@ -258,7 +258,7 @@ int main(){
                         }
                     }
 
-                    ficla.close();
+                    abcalo.close();
 
 
                     for (i = 0; i<comid.size(); i++){
@@ -274,7 +274,7 @@ int main(){
                             }
                         }
                     }
-                                    
+
 
                 break;
 
@@ -288,10 +288,10 @@ int main(){
 
                     vector<string> originalnom (arr, arr + sizeof(arr) / sizeof(string) );
 
-                    
+
 
                     orcom = originalnom;
-                    sorts.ordenaMerge(orcom);   
+                    sorts.ordenaMerge(orcom);
 
 
                     for (i = 0; i<orcom.size(); i++){
